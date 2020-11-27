@@ -29,6 +29,8 @@ namespace BookApi
         {
 
             services.AddControllers()
+                // to generate enums as integer with descriptions remove this line and check
+                // https://stackoverflow.com/questions/60222469/swagger-c-sharp-enum-generation-underlying-int-values-do-not-match-the-origina
                 .AddJsonOptions(o => { o.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter()); });
             services.AddSwaggerGen(c =>
             {
