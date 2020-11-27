@@ -1,0 +1,24 @@
+{
+  "name": "openapisample",
+  "version": "1.0.0",
+  "description": "This is a sample project for how to generate OpenApi documentation which can be used to generate a client.",
+  "main": "index.js",
+  "scripts": {
+    "generate-book-client": "echo \"Error: no test specified\" && exit 1",
+	"start": "dotnet run --project BookApi",
+	"start-watch": "cd bookapi && dotnet watch run"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AngelaE/openapi-sample.git"
+  },
+  "author": "Angela Evans",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AngelaE/openapi-sample/issues"
+  },
+  "homepage": "https://github.com/AngelaE/openapi-sample#readme",
+  "devDependencies": {
+    "autorest": "^3.0.6247"
+  }
+}
