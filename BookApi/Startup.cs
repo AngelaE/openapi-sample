@@ -1,19 +1,17 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Controllers;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using Swashbuckle.AspNetCore.Annotations;
 using Swashbuckle.AspNetCore.SwaggerGen;
 using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Reflection;
-using System.Threading.Tasks;
+using System.Text.Json.Serialization;
 
 namespace BookApi
 {
@@ -41,13 +39,22 @@ namespace BookApi
                 var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
                 c.IncludeXmlComments(xmlPath);
 
-                // Use method name as operationId
+                
                 c.CustomOperationIds(apiDesc =>
                 {
+                    // use ControllerName_Method as operation id. That will group the methods in the generated client
+                    if(apiDesc.ActionDescriptor is ControllerActionDescriptor desc)
+                    {
+                        return $"{desc.ControllerName}_{desc.ActionName}";
+                    }
+
+                    // otherwise get the method name from the methodInfo
                     var controller = apiDesc.ActionDescriptor.RouteValues["controller"];
                     apiDesc.TryGetMethodInfo(out MethodInfo methodInfo);
                     string methodName = methodInfo?.Name ?? null;
 
+                    // Even when a custom Operation ID was assigned => group within the controller.
+                    // Generally using the method name works well -> have not used this in a real service 
                     var customName = methodInfo.CustomAttributes.FirstOrDefault(a => a.AttributeType.Name == nameof(SwaggerOperationAttribute))?
                         .NamedArguments.FirstOrDefault(arg => arg.MemberName == "OperationId").TypedValue.Value.ToString();
 
