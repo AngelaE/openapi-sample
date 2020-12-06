@@ -1,3 +1,4 @@
+using BookApi.OpenApi;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc.Controllers;
@@ -42,7 +43,9 @@ namespace BookApi
                 var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
                 c.IncludeXmlComments(xmlPath);
 
-                
+                // remove additional properties, see https://github.com/Brixel/SpaceAPI/pull/19
+                c.DocumentFilter<AdditionalPropertiesDocumentFilter>();
+
                 c.CustomOperationIds(apiDesc =>
                 {
                     // use ControllerName_Method as operation id. That will group the methods in the generated client
