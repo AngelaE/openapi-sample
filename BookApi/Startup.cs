@@ -51,7 +51,9 @@ namespace BookApi
                     // use ControllerName_Method as operation id. That will group the methods in the generated client
                     if(apiDesc.ActionDescriptor is ControllerActionDescriptor desc)
                     {
-                        return $"{desc.ControllerName}_{desc.ActionName}";
+                        var operationAttribute = (desc.EndpointMetadata
+                        .FirstOrDefault(a => a is SwaggerOperationAttribute) as SwaggerOperationAttribute);
+                        return $"{desc.ControllerName}_{operationAttribute?.OperationId ?? desc.ActionName}";
                     }
 
                     // otherwise get the method name from the methodInfo
@@ -59,12 +61,7 @@ namespace BookApi
                     apiDesc.TryGetMethodInfo(out MethodInfo methodInfo);
                     string methodName = methodInfo?.Name ?? null;
 
-                    // Even when a custom Operation ID was assigned => group within the controller.
-                    // Generally using the method name works well -> have not used this in a real service 
-                    var customName = methodInfo.CustomAttributes.FirstOrDefault(a => a.AttributeType.Name == nameof(SwaggerOperationAttribute))?
-                        .NamedArguments.FirstOrDefault(arg => arg.MemberName == "OperationId").TypedValue.Value.ToString();
-
-                    return $"{controller}_{customName ?? methodName}";
+                    return $"{controller}_{methodName}";
                 });
             });
         }
