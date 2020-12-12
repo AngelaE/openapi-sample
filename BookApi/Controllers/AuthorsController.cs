@@ -40,7 +40,6 @@ namespace BookApi.Controllers
         }
 
         [HttpPost]
-        [ProducesResponseType(typeof(Author), 200)]
         public Author AddAuthor([FromBody]Author author)
         {
             _authors.Add(author);

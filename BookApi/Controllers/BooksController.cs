@@ -24,7 +24,6 @@ namespace BookApi.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpGet]
-        [ProducesResponseType(typeof(IEnumerable<Book>), 200)]
         public IEnumerable<Book> Get()
         {
             return new Book[] { };
