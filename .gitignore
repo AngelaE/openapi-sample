@@ -3,3 +3,5 @@ BookApi/obj/
 node_modules/
 bin/
 obj/
+BookApiConsumer.TypeScript/code-model-v1
+.vs/
