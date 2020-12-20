@@ -3,7 +3,7 @@
 The Book API client is generated with autorest, see https://aka.ms/autorest for details.
 
 To generate the client for this project:
-1. run ```npm init``` in the root folder of the repository
+1. run ```npm install``` in the root folder of the repository
 2. run the npm task to generate the client: ```npm run generate-book-client```
 
 ## AutoRest Client Generator Configuration
