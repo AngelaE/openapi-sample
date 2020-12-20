@@ -1,0 +1,14 @@
+{
+  "name": "bookapiconsumer.typescript",
+  "version": "1.0.0",
+  "description": "Sample on how to generate and use an autorest client with TS",
+  "main": "index.js",
+  "scripts": {
+    "generate-client": "autorest readme.md"
+  },
+  "author": "Angela Evans",
+  "license": "ISC",
+  "devDependencies": {
+    "autorest": "^3.0.6322"
+  }
+}
