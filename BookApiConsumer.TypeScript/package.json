@@ -4,11 +4,18 @@
   "description": "Sample on how to generate and use an autorest client with TS",
   "main": "index.js",
   "scripts": {
-    "generate-client": "autorest readme.md"
+    "generate-client": "autorest readme.md",
+    "build": "tsc",
+    "start": "npm run build & node dist/call-api.js"
   },
   "author": "Angela Evans",
   "license": "ISC",
   "devDependencies": {
+    "@tsconfig/recommended": "^1.0.1",
     "autorest": "^3.0.6322"
+  },
+  "dependencies": {
+    "@azure/ms-rest-js": "^2.1.0",
+    "typescript": "^4.1.3"
   }
 }
