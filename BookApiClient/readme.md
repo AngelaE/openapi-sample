@@ -13,10 +13,11 @@ use-extension:
   "@microsoft.azure/autorest.csharp": "2.3.82"
 
 version: 3.0.6247 #autorest version
-input-file: http://localhost:5000/swagger/v1/swagger.json
+input-file: http://localhost:5001/swagger/v1/swagger.json
 output-folder: .
 csharp: 
   namespace: Clients 
   override-client-name: BookApiClient
   client-side-validation: false # disable client side validation of constraints
+  add-credentials: true
 ```

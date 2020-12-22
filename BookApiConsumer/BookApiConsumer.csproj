@@ -9,4 +9,8 @@
     <ProjectReference Include="..\BookApiClient\BookApiClient.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="IdentityModel" Version="4.5.0" />
+  </ItemGroup>
+
 </Project>

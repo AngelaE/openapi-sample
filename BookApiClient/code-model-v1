@@ -96,7 +96,7 @@
      ],
      "name": "Author",
      "originalLocations": [
-      "http://localhost:5000/swagger/v1/swagger.json#/components/schemas/Author"
+      "http://localhost:5001/swagger/v1/swagger.json#/components/schemas/Author"
      ]
     }
    },
@@ -277,7 +277,7 @@
        ],
        "name": "Type",
        "originalLocations": [
-        "http://localhost:5000/swagger/v1/swagger.json#/components/schemas/Type"
+        "http://localhost:5001/swagger/v1/swagger.json#/components/schemas/Type"
        ]
       }
      },
@@ -348,7 +348,7 @@
      ],
      "name": "Book",
      "originalLocations": [
-      "http://localhost:5000/swagger/v1/swagger.json#/components/schemas/Book"
+      "http://localhost:5001/swagger/v1/swagger.json#/components/schemas/Book"
      ]
     }
    },
@@ -387,7 +387,7 @@
      ],
      "name": "paths·mc1okw·authors-id·get·parameters·0",
      "originalLocations": [
-      "http://localhost:5000/swagger/v1/swagger.json#/components/parameters/paths·mc1okw·authors-id·get·parameters·0"
+      "http://localhost:5001/swagger/v1/swagger.json#/components/parameters/paths·mc1okw·authors-id·get·parameters·0"
      ]
     },
     "x-ms-parameter-location": "method"
@@ -423,14 +423,14 @@
      "name": {
       "$id": "61",
       "fixed": false,
-      "raw": "GetAllAuthors"
+      "raw": "GetAll"
      },
      "group": {
       "$id": "62",
       "fixed": false,
       "raw": "Authors"
      },
-     "serializedName": "Authors_GetAllAuthors",
+     "serializedName": "Authors_GetAll",
      "url": "/Authors",
      "isAbsoluteUrl": false,
      "httpMethod": "get",
@@ -460,7 +460,7 @@
          ],
          "name": "paths·1l311ei·authors·get·responses·200",
          "originalLocations": [
-          "http://localhost:5000/swagger/v1/swagger.json#/components/responses/paths·1l311ei·authors·get·responses·200"
+          "http://localhost:5001/swagger/v1/swagger.json#/components/responses/paths·1l311ei·authors·get·responses·200"
          ]
         }
        },
@@ -514,7 +514,7 @@
          ],
          "name": "paths·15o59ji·authors·post·requestbody",
          "originalLocations": [
-          "http://localhost:5000/swagger/v1/swagger.json#/components/requestBodies/paths·15o59ji·authors·post·requestbody"
+          "http://localhost:5001/swagger/v1/swagger.json#/components/requestBodies/paths·15o59ji·authors·post·requestbody"
          ]
         }
        },
@@ -562,7 +562,7 @@
          ],
          "name": "paths·1ghnk9g·authors·post·responses·200",
          "originalLocations": [
-          "http://localhost:5000/swagger/v1/swagger.json#/components/responses/paths·1ghnk9g·authors·post·responses·200"
+          "http://localhost:5001/swagger/v1/swagger.json#/components/responses/paths·1ghnk9g·authors·post·responses·200"
          ]
         }
        },
@@ -619,7 +619,7 @@
          ],
          "name": "paths·mc1okw·authors-id·get·parameters·0",
          "originalLocations": [
-          "http://localhost:5000/swagger/v1/swagger.json#/components/parameters/paths·mc1okw·authors-id·get·parameters·0"
+          "http://localhost:5001/swagger/v1/swagger.json#/components/parameters/paths·mc1okw·authors-id·get·parameters·0"
          ]
         },
         "x-ms-parameter-location": "method"
@@ -677,7 +677,7 @@
          ],
          "name": "paths·d44fl6·authors-id·get·responses·200",
          "originalLocations": [
-          "http://localhost:5000/swagger/v1/swagger.json#/components/responses/paths·d44fl6·authors-id·get·responses·200"
+          "http://localhost:5001/swagger/v1/swagger.json#/components/responses/paths·d44fl6·authors-id·get·responses·200"
          ]
         }
        },
@@ -762,7 +762,7 @@
          ],
          "name": "paths·n0ao9n·books·get·responses·200",
          "originalLocations": [
-          "http://localhost:5000/swagger/v1/swagger.json#/components/responses/paths·n0ao9n·books·get·responses·200"
+          "http://localhost:5001/swagger/v1/swagger.json#/components/responses/paths·n0ao9n·books·get·responses·200"
          ]
         }
        },
