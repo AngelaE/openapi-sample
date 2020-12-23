@@ -12,10 +12,12 @@
   "license": "ISC",
   "devDependencies": {
     "@tsconfig/recommended": "^1.0.1",
+    "@types/superagent": "^4.1.10",
     "autorest": "^3.0.6322"
   },
   "dependencies": {
     "@azure/ms-rest-js": "^2.1.0",
+    "superagent": "^6.1.0",
     "typescript": "^4.1.3"
   }
 }
