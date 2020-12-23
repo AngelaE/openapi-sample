@@ -4,6 +4,7 @@
  * regenerated.
  */
 
+import * as msRest from "@azure/ms-rest-js";
 import * as Models from "./models";
 import * as Mappers from "./models/mappers";
 import * as operations from "./operations";
@@ -16,10 +17,11 @@ class BookApiClient extends BookApiClientContext {
 
   /**
    * Initializes a new instance of the BookApiClient class.
+   * @param credentials Subscription credentials which uniquely identify client subscription.
    * @param [options] The parameter options
    */
-  constructor(options?: Models.BookApiClientOptions) {
-    super(options);
+  constructor(credentials: msRest.ServiceClientCredentials, options?: Models.BookApiClientOptions) {
+    super(credentials, options);
     this.authors = new operations.Authors(this);
     this.books = new operations.Books(this);
   }
