@@ -18,4 +18,5 @@ typescript:
   override-client-name: BookApiClient
   client-side-validation: false # disable client side validation of constraints
   enum-types: true
+  add-credentials: true
 ```
