@@ -1,5 +1,6 @@
 ﻿using BookApi.Models;
 using BookApi.OpenApi;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Swashbuckle.AspNetCore.Annotations;
@@ -9,6 +10,7 @@ using System.Linq;
 namespace BookApi.Controllers
 {
     [ApiController]
+    [Authorize]
     [Route("[controller]")]
     [Consumes(contentType: ContentTypes.APPLICATION_JSON)]
     [Produces(contentType: ContentTypes.APPLICATION_JSON)]
