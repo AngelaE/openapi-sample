@@ -12,10 +12,10 @@ namespace BookApiConsumer
             var httpClient = new HttpClient();
             var client = new BookApiClient(httpClient, false)
             {
-                BaseUri = new Uri("http://localhost:5000")
+                BaseUri = new Uri("http://localhost:5001")
             };
 
-            var authors = await client.Authors.GetAllAuthorsAsync();
+            var authors = await client.Authors.GetAllAsync();
 
             foreach (var author in authors)
             {

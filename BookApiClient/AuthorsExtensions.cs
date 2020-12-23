@@ -20,9 +20,9 @@ namespace Clients
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
-            public static IList<Author> GetAllAuthors(this IAuthors operations)
+            public static IList<Author> GetAll(this IAuthors operations)
             {
-                return operations.GetAllAuthorsAsync().GetAwaiter().GetResult();
+                return operations.GetAllAsync().GetAwaiter().GetResult();
             }
 
             /// <param name='operations'>
@@ -31,9 +31,9 @@ namespace Clients
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<IList<Author>> GetAllAuthorsAsync(this IAuthors operations, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<IList<Author>> GetAllAsync(this IAuthors operations, CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.GetAllAuthorsWithHttpMessagesAsync(null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.GetAllWithHttpMessagesAsync(null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }
