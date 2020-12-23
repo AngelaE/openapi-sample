@@ -11,7 +11,7 @@ use-extension:
   "@microsoft.azure/autorest.typescript": "4.2.4"
   
 version: 3.0.6322 #autorest version
-input-file: http://localhost:5000/swagger/v1/swagger.json
+input-file: http://localhost:5001/swagger/v1/swagger.json
 output-folder: .
 typescript: 
   source-code-folder-path: ./src/book-api-client
