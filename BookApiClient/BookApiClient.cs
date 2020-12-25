@@ -33,6 +33,11 @@ namespace Clients
         public JsonSerializerSettings DeserializationSettings { get; private set; }
 
         /// <summary>
+        /// Subscription credentials which uniquely identify client subscription.
+        /// </summary>
+        public ServiceClientCredentials Credentials { get; private set; }
+
+        /// <summary>
         /// Gets the IAuthors.
         /// </summary>
         public virtual IAuthors Authors { get; private set; }
@@ -50,7 +55,7 @@ namespace Clients
         /// </param>
         /// <param name='disposeHttpClient'>
         /// True: will dispose the provided httpClient on calling BookApiClient.Dispose(). False: will not dispose provided httpClient</param>
-        public BookApiClient(HttpClient httpClient, bool disposeHttpClient) : base(httpClient, disposeHttpClient)
+        protected BookApiClient(HttpClient httpClient, bool disposeHttpClient) : base(httpClient, disposeHttpClient)
         {
             Initialize();
         }
@@ -61,7 +66,7 @@ namespace Clients
         /// <param name='handlers'>
         /// Optional. The delegating handlers to add to the http client pipeline.
         /// </param>
-        public BookApiClient(params DelegatingHandler[] handlers) : base(handlers)
+        protected BookApiClient(params DelegatingHandler[] handlers) : base(handlers)
         {
             Initialize();
         }
@@ -75,7 +80,7 @@ namespace Clients
         /// <param name='handlers'>
         /// Optional. The delegating handlers to add to the http client pipeline.
         /// </param>
-        public BookApiClient(HttpClientHandler rootHandler, params DelegatingHandler[] handlers) : base(rootHandler, handlers)
+        protected BookApiClient(HttpClientHandler rootHandler, params DelegatingHandler[] handlers) : base(rootHandler, handlers)
         {
             Initialize();
         }
@@ -92,7 +97,7 @@ namespace Clients
         /// <exception cref="System.ArgumentNullException">
         /// Thrown when a required parameter is null
         /// </exception>
-        public BookApiClient(System.Uri baseUri, params DelegatingHandler[] handlers) : this(handlers)
+        protected BookApiClient(System.Uri baseUri, params DelegatingHandler[] handlers) : this(handlers)
         {
             if (baseUri == null)
             {
@@ -116,13 +121,162 @@ namespace Clients
         /// <exception cref="System.ArgumentNullException">
         /// Thrown when a required parameter is null
         /// </exception>
-        public BookApiClient(System.Uri baseUri, HttpClientHandler rootHandler, params DelegatingHandler[] handlers) : this(rootHandler, handlers)
+        protected BookApiClient(System.Uri baseUri, HttpClientHandler rootHandler, params DelegatingHandler[] handlers) : this(rootHandler, handlers)
         {
             if (baseUri == null)
             {
                 throw new System.ArgumentNullException("baseUri");
             }
             BaseUri = baseUri;
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the BookApiClient class.
+        /// </summary>
+        /// <param name='credentials'>
+        /// Required. Subscription credentials which uniquely identify client subscription.
+        /// </param>
+        /// <param name='handlers'>
+        /// Optional. The delegating handlers to add to the http client pipeline.
+        /// </param>
+        /// <exception cref="System.ArgumentNullException">
+        /// Thrown when a required parameter is null
+        /// </exception>
+        public BookApiClient(ServiceClientCredentials credentials, params DelegatingHandler[] handlers) : this(handlers)
+        {
+            if (credentials == null)
+            {
+                throw new System.ArgumentNullException("credentials");
+            }
+            Credentials = credentials;
+            if (Credentials != null)
+            {
+                Credentials.InitializeServiceClient(this);
+            }
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the BookApiClient class.
+        /// </summary>
+        /// <param name='credentials'>
+        /// Required. Subscription credentials which uniquely identify client subscription.
+        /// </param>
+        /// <param name='httpClient'>
+        /// HttpClient to be used
+        /// </param>
+        /// <param name='disposeHttpClient'>
+        /// True: will dispose the provided httpClient on calling BookApiClient.Dispose(). False: will not dispose provided httpClient</param>
+        /// <exception cref="System.ArgumentNullException">
+        /// Thrown when a required parameter is null
+        /// </exception>
+        public BookApiClient(ServiceClientCredentials credentials, HttpClient httpClient, bool disposeHttpClient) : this(httpClient, disposeHttpClient)
+        {
+            if (credentials == null)
+            {
+                throw new System.ArgumentNullException("credentials");
+            }
+            Credentials = credentials;
+            if (Credentials != null)
+            {
+                Credentials.InitializeServiceClient(this);
+            }
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the BookApiClient class.
+        /// </summary>
+        /// <param name='credentials'>
+        /// Required. Subscription credentials which uniquely identify client subscription.
+        /// </param>
+        /// <param name='rootHandler'>
+        /// Optional. The http client handler used to handle http transport.
+        /// </param>
+        /// <param name='handlers'>
+        /// Optional. The delegating handlers to add to the http client pipeline.
+        /// </param>
+        /// <exception cref="System.ArgumentNullException">
+        /// Thrown when a required parameter is null
+        /// </exception>
+        public BookApiClient(ServiceClientCredentials credentials, HttpClientHandler rootHandler, params DelegatingHandler[] handlers) : this(rootHandler, handlers)
+        {
+            if (credentials == null)
+            {
+                throw new System.ArgumentNullException("credentials");
+            }
+            Credentials = credentials;
+            if (Credentials != null)
+            {
+                Credentials.InitializeServiceClient(this);
+            }
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the BookApiClient class.
+        /// </summary>
+        /// <param name='baseUri'>
+        /// Optional. The base URI of the service.
+        /// </param>
+        /// <param name='credentials'>
+        /// Required. Subscription credentials which uniquely identify client subscription.
+        /// </param>
+        /// <param name='handlers'>
+        /// Optional. The delegating handlers to add to the http client pipeline.
+        /// </param>
+        /// <exception cref="System.ArgumentNullException">
+        /// Thrown when a required parameter is null
+        /// </exception>
+        public BookApiClient(System.Uri baseUri, ServiceClientCredentials credentials, params DelegatingHandler[] handlers) : this(handlers)
+        {
+            if (baseUri == null)
+            {
+                throw new System.ArgumentNullException("baseUri");
+            }
+            if (credentials == null)
+            {
+                throw new System.ArgumentNullException("credentials");
+            }
+            BaseUri = baseUri;
+            Credentials = credentials;
+            if (Credentials != null)
+            {
+                Credentials.InitializeServiceClient(this);
+            }
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the BookApiClient class.
+        /// </summary>
+        /// <param name='baseUri'>
+        /// Optional. The base URI of the service.
+        /// </param>
+        /// <param name='credentials'>
+        /// Required. Subscription credentials which uniquely identify client subscription.
+        /// </param>
+        /// <param name='rootHandler'>
+        /// Optional. The http client handler used to handle http transport.
+        /// </param>
+        /// <param name='handlers'>
+        /// Optional. The delegating handlers to add to the http client pipeline.
+        /// </param>
+        /// <exception cref="System.ArgumentNullException">
+        /// Thrown when a required parameter is null
+        /// </exception>
+        public BookApiClient(System.Uri baseUri, ServiceClientCredentials credentials, HttpClientHandler rootHandler, params DelegatingHandler[] handlers) : this(rootHandler, handlers)
+        {
+            if (baseUri == null)
+            {
+                throw new System.ArgumentNullException("baseUri");
+            }
+            if (credentials == null)
+            {
+                throw new System.ArgumentNullException("credentials");
+            }
+            BaseUri = baseUri;
+            Credentials = credentials;
+            if (Credentials != null)
+            {
+                Credentials.InitializeServiceClient(this);
+            }
         }
 
         /// <summary>

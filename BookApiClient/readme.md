@@ -19,4 +19,5 @@ csharp:
   namespace: Clients 
   override-client-name: BookApiClient
   client-side-validation: false # disable client side validation of constraints
+  add-credentials: true
 ```

@@ -11,12 +11,18 @@ const packageName = "";
 const packageVersion = "1.0.0";
 
 export class BookApiClientContext extends msRest.ServiceClient {
+  credentials: msRest.ServiceClientCredentials;
 
   /**
    * Initializes a new instance of the BookApiClientContext class.
+   * @param credentials Subscription credentials which uniquely identify client subscription.
    * @param [options] The parameter options
    */
-  constructor(options?: Models.BookApiClientOptions) {
+  constructor(credentials: msRest.ServiceClientCredentials, options?: Models.BookApiClientOptions) {
+    if (credentials == undefined) {
+      throw new Error("'credentials' cannot be null.");
+    }
+
     if (!options) {
       options = {};
     }
@@ -26,9 +32,10 @@ export class BookApiClientContext extends msRest.ServiceClient {
       options.userAgent = `${packageName}/${packageVersion} ${defaultUserAgent}`;
     }
 
-    super(undefined, options);
+    super(credentials, options);
 
     this.baseUri = options.baseUri || this.baseUri || "http://localhost";
     this.requestContentType = "application/json; charset=utf-8";
+    this.credentials = credentials;
   }
 }

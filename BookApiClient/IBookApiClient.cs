@@ -6,6 +6,7 @@
 
 namespace Clients
 {
+    using Microsoft.Rest;
     using Models;
     using Newtonsoft.Json;
 
@@ -27,6 +28,12 @@ namespace Clients
         /// Gets or sets json deserialization settings.
         /// </summary>
         JsonSerializerSettings DeserializationSettings { get; }
+
+        /// <summary>
+        /// Subscription credentials which uniquely identify client
+        /// subscription.
+        /// </summary>
+        ServiceClientCredentials Credentials { get; }
 
 
         /// <summary>
