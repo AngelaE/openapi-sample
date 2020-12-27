@@ -53,6 +53,9 @@ namespace BookApi
                 var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
                 c.IncludeXmlComments(xmlPath);
 
+                c.OperationFilter<BearerTokenOperationFilter>();
+                c.OperationFilter<ClientHeaderOperationFilter>();
+
                 // remove additional properties, see https://github.com/Brixel/SpaceAPI/pull/19
                 c.DocumentFilter<AdditionalPropertiesDocumentFilter>();
 
